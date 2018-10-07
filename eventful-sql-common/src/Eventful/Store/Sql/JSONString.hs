@@ -1,18 +1,19 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE OverloadedStrings          #-}
 
 module Eventful.Store.Sql.JSONString
   ( JSONString
   , jsonStringSerializer
+  , unJSONString
   ) where
 
-import Data.Aeson
-import Data.Text.Lazy (Text)
+import           Data.Aeson
+import           Data.Text.Lazy          (Text)
 import qualified Data.Text.Lazy.Encoding as TLE
-import Database.Persist
-import Database.Persist.Sql
+import           Database.Persist
+import           Database.Persist.Sql
 
-import Eventful.Serializer
+import           Eventful.Serializer
 
 -- | A more specific type than just ByteString for JSON data.
 newtype JSONString = JSONString { unJSONString :: Text }
